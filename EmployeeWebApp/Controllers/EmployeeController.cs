@@ -165,7 +165,7 @@ namespace EmployeeWebApp.Controllers
             }
         }
 
-        [Route("GetAllDepartmentName")]
+        [Route("GetAllDepartmentNames")]
         [HttpGet]
         public JsonResult GetAllDepartmentNames()
         {
