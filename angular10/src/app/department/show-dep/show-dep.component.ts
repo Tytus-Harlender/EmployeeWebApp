@@ -37,9 +37,16 @@ export class ShowDepComponent implements OnInit {
 
   }
 
-  deleteClick()
-  {
-
+  deleteClick(item:any){
+    this.dep = item;
+    if(confirm('Are you sure??'))
+    {
+      this.service.deleteDepartment(this.dep.DepartmentId).subscribe(data=>
+      {
+        alert(data.toString());
+        this.refreshDepList();
+      })
+    }
   }
 
   closeClick()
@@ -48,8 +55,8 @@ export class ShowDepComponent implements OnInit {
       this.refreshDepList();
   }
   
-  refreshDepList()
-  {
+  refreshDepList(){
+      
       this.service.getDepList().subscribe(data=>{
       this.DepartmentList=data;
     });
